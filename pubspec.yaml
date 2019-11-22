@@ -33,6 +33,7 @@ dependencies:
   redux_persist_flutter: ^0.8.2
   provider: ^3.1.0+1
   overlay_support: ^1.0.2
+  url_launcher: ^5.2.5
 
 dev_dependencies:
   flutter_test:

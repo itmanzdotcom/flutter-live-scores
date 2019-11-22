@@ -103,70 +103,80 @@ Widget bannerLoginRegister() {
     future: isAppVisible(),
     builder: (BuildContext context, AsyncSnapshot snapshot) {
       return snapshot.hasData && snapshot.data == 1
-          ?  Expanded(
-        flex: 1,
-        child: Container(
-            color: Colors.green,
-            padding: EdgeInsets.all(10),
-            child: Column(
-              children: <Widget>[
-                Container(
-                  margin: EdgeInsets.all(20),
-                  child: Align(
-                    alignment: Alignment.center,
-                    child: Text(
-                      "Đăng ký tài khoản KuBet?",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                          color: Colors.white),
-                    ),
-                  ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(0, 0, 10, 0),
-                      child: SizedBox(
-                        width: 120.0,
-                        height: 50.0,
-                        child: RaisedButton(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(40.0),
-                          ),
-                          onPressed: () {},
-                          color: Colors.white,
+          ? Expanded(
+              flex: 1,
+              child: Container(
+                  color: Colors.green,
+                  padding: EdgeInsets.all(10),
+                  child: Column(
+                    children: <Widget>[
+                      Container(
+                        margin: EdgeInsets.all(20),
+                        child: Align(
+                          alignment: Alignment.center,
                           child: Text(
-                            "Đăng Nhập",
-                            style: TextStyle(color: Colors.green, fontSize: 16.0),
+                            "Đăng ký tài khoản KuBet?",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20,
+                                color: Colors.white),
                           ),
                         ),
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                      child: SizedBox(
-                        width: 120.0,
-                        height: 50.0,
-                        child: RaisedButton(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(40.0),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Padding(
+                            padding: EdgeInsets.fromLTRB(0, 0, 10, 0),
+                            child: SizedBox(
+                              width: 120.0,
+                              height: 50.0,
+                              child: RaisedButton(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(40.0),
+                                ),
+                                onPressed: () {
+                                  getAppLink().then((link) {
+                                    launchURL(link);
+                                  });
+                                },
+                                color: Colors.white,
+                                child: Text(
+                                  "Đăng Nhập",
+                                  style: TextStyle(
+                                      color: Colors.green, fontSize: 16.0),
+                                ),
+                              ),
+                            ),
                           ),
-                          onPressed: () {},
-                          color: Colors.white,
-                          child: Text(
-                            "Đăng Ký",
-                            style: TextStyle(color: Colors.green, fontSize: 16.0),
+                          Padding(
+                            padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                            child: SizedBox(
+                              width: 120.0,
+                              height: 50.0,
+                              child: RaisedButton(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(40.0),
+                                ),
+                                onPressed: () {
+                                  getAppLink().then((link) {
+                                    launchURL(link);
+                                  });
+                                },
+                                color: Colors.white,
+                                child: Text(
+                                  "Đăng Ký",
+                                  style: TextStyle(
+                                      color: Colors.green, fontSize: 16.0),
+                                ),
+                              ),
+                            ),
                           ),
-                        ),
+                        ],
                       ),
-                    ),
-                  ],
-                ),
-              ],
-            )),
-      )
+                    ],
+                  )),
+            )
           : Container();
     },
   );
